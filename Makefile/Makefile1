@@ -1,0 +1,3 @@
+
+hellomake: main.c hello.c 
+	gcc -o hellomake main.c hello.c -I.

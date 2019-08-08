@@ -1,0 +1,13 @@
+.PHONY: hellomake
+
+CC=gcc
+CFLAGS=-I.
+DEPS = hello.h
+CFILES = $(wildcard *.c) 		#main.c hello.c
+OBJS = $(patsubst %.c, %.o, $(CFILES))	#OBJS = main.o hello.o
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)	
+
+hellomake: $(OBJS)
+	 $(CC) -o $@ $^ $(CFLAGS)
